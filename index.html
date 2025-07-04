@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Mechanical Engineer | Seeking Opportunities</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Dark slate gray text */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #1e293b; /* Darker slate gray */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #0ea5e9; /* Sky blue */
+            border-radius: 9999px; /* rounded-full */
+        }
+        .btn-primary {
+            @apply bg-sky-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-sky-700 transition duration-300 ease-in-out font-medium;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition duration-300 ease-in-out font-medium;
+        }
+        /* Custom height for hero section to account for fixed nav */
+        .min-h-screen-minus-nav {
+            min-height: calc(100vh - 76px); /* Adjust 76px based on nav height */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-700">John Doe</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-sky-700 transition duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-sky-700 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-sky-700 transition duration-300">Skills</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-sky-700 transition duration-300">Portfolio</a>
+                <a href="#resume" class="text-gray-600 hover:text-sky-700 transition duration-300">Resume</a>
+                <a href="#contact" class="text-gray-600 hover:text-sky-700 transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 mt-4 rounded-lg shadow-md">
+            <a href="#home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About</a>
+            <a href="#skills" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Skills</a>
+            <a href="#portfolio" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Portfolio</a>
+            <a href="#resume" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Resume</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-sky-600 to-blue-700 text-white py-32 md:py-48 flex items-center justify-center min-h-screen-minus-nav">
+        <div class="container mx-auto text-center px-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                Experienced Mechanical Engineer Seeking New Opportunities
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90">
+                Leveraging expertise in design, analysis, and optimization to contribute to innovative engineering teams.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#resume" class="btn-primary">Download Resume</a>
+                <a href="#contact" class="btn-secondary">Connect with Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="section-title text-center mx-auto mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/400x400/e0f2fe/0ea5e9?text=Professional+Photo" alt="John Doe Professional Photo" class="rounded-full shadow-lg w-64 h-64 md:w-full md:h-auto object-cover mx-auto">
+                </div>
+                <div class="md:w-2/3 text-lg leading-relaxed">
+                    <p class="mb-4">
+                        Hello! I'm John Doe, a results-driven Mechanical Engineer with over 10 years of experience in designing, analyzing, and optimizing mechanical systems across diverse sectors like automotive, aerospace, and renewable energy. I am currently seeking challenging roles where I can apply my skills to drive innovation and efficiency.
+                    </p>
+                    <p class="mb-4">
+                        I hold a Master's degree in Mechanical Engineering from a top-tier university and possess a strong foundation in CAD/CAM, FEA, thermodynamics, fluid dynamics, and materials science. My career is marked by successful project deliveries and a proven ability to tackle complex engineering problems with creative and effective solutions.
+                    </p>
+                    <p>
+                        I am eager to join a forward-thinking team where I can contribute to impactful projects, continue to grow professionally, and leverage my commitment to excellence and meticulous approach to achieve shared goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="section-title text-center mx-auto mb-12">My Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Technical Skills</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>CAD Software (SolidWorks, AutoCAD, CATIA)</li>
+                        <li>FEA Software (ANSYS, Abaqus)</li>
+                        <li>Thermodynamics & Heat Transfer</li>
+                        <li>Fluid Dynamics & CFD</li>
+                        <li>Materials Science & Engineering</li>
+                        <li>Manufacturing Processes</li>
+                        <li>Prototyping & Testing</li>
+                    </ul>
+                </div>
+                <!-- Software Skills -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Software & Tools</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>MATLAB & Simulink</li>
+                        <li>Python (for data analysis/scripting)</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Project Management Software (Jira, Asana)</li>
+                        <li>Version Control (Git)</li>
+                    </ul>
+                </div>
+                <!-- Soft Skills -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Soft Skills</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                        <li>Team Collaboration</li>
+                        <li>Communication (Verbal & Written)</li>
+                        <li>Adaptability & Learning Agility</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Existing, but re-emphasized for job search) -->
+    <section id="portfolio" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="section-title text-center mx-auto mb-12">Project Portfolio</h2>
+            <p class="text-center text-lg text-gray-700 mb-10">
+                Explore a selection of my key projects demonstrating my capabilities in mechanical design, analysis, and innovation.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+1" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Automotive Chassis Redesign</h3>
+                        <p class="text-gray-600 text-sm">
+                            Optimized chassis structure for reduced weight and improved rigidity using FEA. Achieved a 15% weight reduction while increasing torsional stiffness by 20%.
+                        </p>
+                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+2" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Aerospace Component Stress Analysis</h3>
+                        <p class="text-gray-600 text-sm">
+                            Conducted detailed stress analysis on critical aerospace components, ensuring compliance with safety standards and extending component lifespan.
+                        </p>
+                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+3" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Renewable Energy System Design</h3>
+                        <p class="text-gray-600 text-sm">
+                            Designed and simulated a new wind turbine blade profile, leading to a 10% increase in energy capture efficiency.
+                        </p>
+                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-16 md:py-24 bg-gray-100 text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="section-title mx-auto mb-8">My Resume</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                For a comprehensive overview of my professional experience, education, and detailed skill set, please download my resume.
+            </p>
+            <a href="path/to/your/resume.pdf" download class="btn-primary">
+                Download Resume (PDF)
+            </a>
+            <p class="text-sm text-gray-500 mt-4">
+                (Note: Replace "path/to/your/resume.pdf" with the actual link to your resume file.)
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="section-title text-center mx-auto mb-12">Get in Touch</h2>
+            <p class="text-center text-lg text-gray-700 mb-10">
+                I am actively seeking new mechanical engineering opportunities and welcome connections from recruiters and industry professionals. Please feel free to reach out to discuss how my skills can benefit your team.
+            </p>
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="Your Name">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="I'm interested in discussing potential opportunities..."></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </div>
+            </form>
+            <div class="text-center mt-8 text-gray-600">
+                <p>Alternatively, you can reach me directly:</p>
+                <p class="mt-2">Email: <a href="mailto:john.doe@example.com" class="text-sky-600 hover:underline">john.doe@example.com</a></p>
+                <p>Phone: <a href="tel:+15551234567" class="text-sky-600 hover:underline">+1 (555) 123-4567</a></p>
+                <p class="mt-4">Connect on LinkedIn: <a href="https://www.linkedin.com/in/johndoeengineer" target="_blank" class="text-sky-600 hover:underline">linkedin.com/in/johndoeengineer</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 John Doe. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://www.linkedin.com/in/johndoeengineer" target="_blank" class="text-gray-400 hover:text-white transition duration-300">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">GitHub (if applicable)</a>
+                <!-- Add more social links as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Toggle mobile menu visibility
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
