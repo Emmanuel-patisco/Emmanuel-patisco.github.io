@@ -6,6 +6,10 @@ This repository contains a simple portfolio website built with a single `index.h
 
 The contact form on the site is for demonstration only and does not actually send emails or store messages. If you need a working form, connect the JavaScript handler in `index.html` to a backend service or an email API.
 
+## Setup
+
+This project references the Tailwind CSS CDN for convenience when prototyping. For production builds, compile Tailwind with the Tailwind CLI or a PostCSS workflow. See the [official installation docs](https://tailwindcss.com/docs/installation) for details.
+
 ## Running locally
 
 Because the site is completely static, you can view it directly in a browser:
