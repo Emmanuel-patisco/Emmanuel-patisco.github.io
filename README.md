@@ -1,5 +1,12 @@
 # Portfolio Website
 
+
+This repository contains the source code for my portfolio website.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+=======
 This repository contains a simple portfolio website built with a single `index.html` file styled using [Tailwind CSS](https://tailwindcss.com/). It showcases an example mechanical engineer profile with sections for an about page, skills, project highlights and a contact form.
 
 ## Running locally
@@ -40,3 +47,4 @@ The included contact form only simulates a successful submission using JavaScrip
 3. After a few moments your portfolio will be available at `https://<your-username>.github.io/<repository-name>/`.
 
 Feel free to customize further and enjoy your new online portfolio!
+
