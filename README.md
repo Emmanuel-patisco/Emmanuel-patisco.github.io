@@ -18,6 +18,10 @@ This project is licensed under the [MIT License](LICENSE).
 =======
 This repository contains a simple portfolio website built with a single `index.html` file styled using [Tailwind CSS](https://tailwindcss.com/). It showcases an example mechanical engineer profile with sections for an about page, skills, project highlights and a contact form.
 
+## Setup
+
+This project references the Tailwind CSS CDN for convenience when prototyping. For production builds, compile Tailwind with the Tailwind CLI or a PostCSS workflow. See the [official installation docs](https://tailwindcss.com/docs/installation) for details.
+
 ## Running locally
 
 Because the site is completely static, you can view it directly in a browser:
