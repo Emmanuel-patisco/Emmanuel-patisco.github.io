@@ -1,22 +1,10 @@
+# Portfolio Website
 
-# Portfolio Site
-
-This repository contains the source for a simple one page portfolio.
+This repository contains a simple portfolio website built with a single `index.html` file styled using [Tailwind CSS](https://tailwindcss.com/). It showcases an example mechanical engineer profile with sections for an about page, skills, project highlights and a contact form. This project is licensed under the [MIT License](LICENSE).
 
 ## Contact Form
 
 The contact form on the site is for demonstration only and does not actually send emails or store messages. If you need a working form, connect the JavaScript handler in `index.html` to a backend service or an email API.
-=======
-# Portfolio Website
-
-
-This repository contains the source code for my portfolio website.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-=======
-This repository contains a simple portfolio website built with a single `index.html` file styled using [Tailwind CSS](https://tailwindcss.com/). It showcases an example mechanical engineer profile with sections for an about page, skills, project highlights and a contact form.
 
 ## Running locally
 
