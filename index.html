@@ -150,7 +150,9 @@
             white-space: nowrap; /* Keeps the content on a single line */
             border-right: .15em solid white; /* The typewriter cursor */
             animation:
-                typing 3.5s steps(40, end),
+                /* Adjust steps to the length of the heading text so the
+                   typewriter animation completes fully */
+                typing 3.5s steps(57, end),
                 blink-caret .75s step-end infinite;
         }
 
