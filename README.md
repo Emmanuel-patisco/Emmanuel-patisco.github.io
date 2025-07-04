@@ -1,3 +1,12 @@
+
+# Portfolio Site
+
+This repository contains the source for a simple one page portfolio.
+
+## Contact Form
+
+The contact form on the site is for demonstration only and does not actually send emails or store messages. If you need a working form, connect the JavaScript handler in `index.html` to a backend service or an email API.
+=======
 # Portfolio Website
 
 
@@ -47,4 +56,5 @@ The included contact form only simulates a successful submission using JavaScrip
 3. After a few moments your portfolio will be available at `https://<your-username>.github.io/<repository-name>/`.
 
 Feel free to customize further and enjoy your new online portfolio!
+
 
