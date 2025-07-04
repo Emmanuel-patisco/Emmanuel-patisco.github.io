@@ -458,6 +458,7 @@
                 <p class="text-center text-lg text-gray-300 mb-10">
                     I am actively seeking new mechanical engineering opportunities and welcome connections from recruiters and industry professionals. Please feel free to reach out to discuss how my skills can benefit your team.
                 </p>
+                <p class="text-center text-sm text-gray-400 mb-8">This contact form is a demo and messages are not sent.</p>
                 <form class="space-y-6" id="contact-form">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
@@ -596,36 +597,15 @@
             observer.observe(element);
         });
 
-        // Form Submission Micro-interaction
-        const contactForm = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const formStatus = document.getElementById('form-status');
+        // Form Submission Demo
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
 
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-            formStatus.classList.remove('hidden', 'text-red-400');
-            formStatus.classList.add('text-sky-300');
-            formStatus.textContent = 'Sending your message...';
-
-            // Simulate form submission (replace with actual fetch/AJAX in a real app)
-            setTimeout(() => {
-                const isSuccess = Math.random() > 0.2; // 80% chance of success
-
-                if (isSuccess) {
-                    formStatus.textContent = 'Message sent successfully! Thank you.';
-                    formStatus.classList.remove('text-sky-300');
-                    formStatus.classList.add('text-green-400');
-                    contactForm.reset(); // Clear form on success
-                } else {
-                    formStatus.textContent = 'Failed to send message. Please try again.';
-                    formStatus.classList.remove('text-sky-300');
-                    formStatus.classList.add('text-red-400');
-                }
-                submitButton.textContent = 'Send Message';
-                submitButton.disabled = false;
-            }, 2000); // Simulate network delay
+            formStatus.classList.remove("hidden", "text-red-400", "text-green-400");
+            formStatus.classList.add("text-yellow-400");
+            formStatus.textContent = "This is a demo form. Messages are not sent.";
         });
     </script>
 </body>
