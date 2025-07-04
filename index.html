@@ -1,73 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe - Mechanical Engineer | Seeking Opportunities</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Poppins (for headings) and Inter (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Custom CSS for enhanced aesthetics and animations */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
-            color: #334155; /* Dark slate gray text */
+            background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568); /* Deep blues/grays gradient */
+            color: #e2e8f0; /* Light gray text for contrast */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Section Title Styling with Gradient Text */
         .section-title {
             position: relative;
             display: inline-block;
             padding-bottom: 0.5rem;
             margin-bottom: 2rem;
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #1e293b; /* Darker slate gray */
+            font-size: 2.75rem; /* text-5xl equivalent */
+            font-weight: 800; /* font-extrabold */
+            background: linear-gradient(to right, #8b5cf6, #3b82f6, #06b6d4); /* Purple to blue to teal gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
         .section-title::after {
             content: '';
             position: absolute;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             bottom: 0;
-            width: 50px;
-            height: 4px;
-            background-color: #0ea5e9; /* Sky blue */
+            width: 70px;
+            height: 5px;
+            background: linear-gradient(to right, #8b5cf6, #06b6d4); /* Matching gradient underline */
             border-radius: 9999px; /* rounded-full */
         }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Primary Button with Shine Effect */
         .btn-primary {
-            @apply bg-sky-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-sky-700 transition duration-300 ease-in-out font-medium;
+            @apply relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out font-semibold text-lg;
+            z-index: 1;
         }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-20deg);
+            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        /* Secondary Button */
         .btn-secondary {
-            @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition duration-300 ease-in-out font-medium;
+            @apply bg-gray-700 text-gray-200 px-8 py-3 rounded-xl shadow-lg hover:bg-gray-600 transition duration-300 ease-in-out font-semibold text-lg;
         }
+
         /* Custom height for hero section to account for fixed nav */
         .min-h-screen-minus-nav {
             min-height: calc(100vh - 76px); /* Adjust 76px based on nav height */
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-light {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .animate-pulse-light {
+            animation: pulse-light 2s infinite ease-in-out;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+        .animate-typing {
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            white-space: nowrap; /* Keeps the content on a single line */
+            border-right: .15em solid white; /* The typewriter cursor */
+            animation:
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Skill Progress Bar Animation */
+        @keyframes fillProgress {
+            from { width: 0%; }
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(to right, #06b6d4, #3b82f6); /* Teal to blue gradient */
+            border-radius: 9999px;
+            animation: fillProgress 1.5s ease-out forwards;
+        }
+
+        /* Portfolio Card Overlay */
+        .portfolio-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(139, 92, 246, 0.8), rgba(6, 182, 212, 0.8)); /* Purple to Teal overlay */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+        }
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+        .portfolio-card-overlay h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem; /* text-2xl */
+            margin-bottom: 0.5rem;
+        }
+        .portfolio-card-overlay p {
+            font-size: 0.9rem; /* text-sm */
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Background Particles/Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute w-24 h-24 bg-purple-500 rounded-full opacity-10 animate-float top-1/4 left-1/4"></div>
+        <div class="absolute w-32 h-32 bg-blue-500 rounded-full opacity-10 animate-float animation-delay-2000 bottom-1/3 right-1/4"></div>
+        <div class="absolute w-20 h-20 bg-teal-500 rounded-full opacity-10 animate-float animation-delay-4000 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-10 top-0">
+    <nav id="navbar" class="bg-white/20 backdrop-blur-lg shadow-lg py-4 px-6 md:px-12 fixed w-full z-20 top-0 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-sky-700">John Doe</a>
+            <a href="#" class="text-2xl font-bold text-white hover:text-sky-300 transition duration-300">John Doe</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-600 hover:text-sky-700 transition duration-300">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-sky-700 transition duration-300">About</a>
-                <a href="#skills" class="text-gray-600 hover:text-sky-700 transition duration-300">Skills</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-sky-700 transition duration-300">Portfolio</a>
-                <a href="#resume" class="text-gray-600 hover:text-sky-700 transition duration-300">Resume</a>
-                <a href="#contact" class="text-gray-600 hover:text-sky-700 transition duration-300">Contact</a>
+                <a href="#home" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Home</a>
+                <a href="#about" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">About</a>
+                <a href="#skills" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Skills</a>
+                <a href="#portfolio" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Portfolio</a>
+                <a href="#resume" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Resume</a>
+                <a href="#contact" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 mt-4 rounded-lg shadow-md">
+        <div id="mobile-menu" class="md:hidden hidden bg-white/90 backdrop-blur-md py-2 mt-4 rounded-lg shadow-xl">
             <a href="#home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
             <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About</a>
             <a href="#skills" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Skills</a>
@@ -78,28 +219,32 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative bg-gradient-to-r from-sky-600 to-blue-700 text-white py-32 md:py-48 flex items-center justify-center min-h-screen-minus-nav">
-        <div class="container mx-auto text-center px-6">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+    <section id="home" class="relative text-white py-32 md:py-48 flex items-center justify-center min-h-screen-minus-nav overflow-hidden">
+        <div class="container mx-auto text-center px-6 z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-typing mx-auto max-w-4xl">
                 Experienced Mechanical Engineer Seeking New Opportunities
             </h1>
-            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90">
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 fade-in-section">
                 Leveraging expertise in design, analysis, and optimization to contribute to innovative engineering teams.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in-section animation-delay-500">
                 <a href="#resume" class="btn-primary">Download Resume</a>
                 <a href="#contact" class="btn-secondary">Connect with Me</a>
             </div>
         </div>
+        <!-- Decorative elements for hero section -->
+        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+        <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-teal-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-light"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-light animation-delay-1000"></div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-white">
+    <section id="about" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="section-title text-center mx-auto mb-12">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+            <div class="glass-card p-8 md:p-12 flex flex-col md:flex-row items-center md:space-x-12">
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/400x400/e0f2fe/0ea5e9?text=Professional+Photo" alt="John Doe Professional Photo" class="rounded-full shadow-lg w-64 h-64 md:w-full md:h-auto object-cover mx-auto">
+                    <img src="https://placehold.co/400x400/334155/e2e8f0?text=Professional+Photo" alt="John Doe Professional Photo" class="rounded-full shadow-2xl ring-4 ring-sky-500 w-64 h-64 md:w-full md:h-auto object-cover mx-auto transform hover:scale-105 transition-transform duration-300">
                 </div>
                 <div class="md:w-2/3 text-lg leading-relaxed">
                     <p class="mb-4">
@@ -117,38 +262,107 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-24 bg-gray-50">
+    <section id="skills" class="py-16 md:py-24 bg-gray-800 text-gray-200 fade-in-section">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="section-title text-center mx-auto mb-12">My Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Technical Skills -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Technical Skills</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>CAD Software (SolidWorks, AutoCAD, CATIA)</li>
-                        <li>FEA Software (ANSYS, Abaqus)</li>
-                        <li>Thermodynamics & Heat Transfer</li>
-                        <li>Fluid Dynamics & CFD</li>
-                        <li>Materials Science & Engineering</li>
-                        <li>Manufacturing Processes</li>
-                        <li>Prototyping & Testing</li>
+                <div class="glass-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4 flex items-center">
+                        <svg class="w-8 h-8 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Technical Skills
+                    </h3>
+                    <ul class="list-none space-y-4 text-gray-300">
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>CAD Software (SolidWorks, CATIA)</span>
+                                <span class="text-sm font-semibold text-sky-300">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>FEA Software (ANSYS, Abaqus)</span>
+                                <span class="text-sm font-semibold text-sky-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Thermodynamics & Heat Transfer</span>
+                                <span class="text-sm font-semibold text-sky-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Fluid Dynamics & CFD</span>
+                                <span class="text-sm font-semibold text-sky-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 80%;"></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <!-- Software Skills -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Software & Tools</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>MATLAB & Simulink</li>
-                        <li>Python (for data analysis/scripting)</li>
-                        <li>Microsoft Office Suite</li>
-                        <li>Project Management Software (Jira, Asana)</li>
-                        <li>Version Control (Git)</li>
+                <div class="glass-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4 flex items-center">
+                        <svg class="w-8 h-8 mr-3 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 10h2m10 0h2M3 14h2m10 0h2M7 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"></path></svg>
+                        Software & Tools
+                    </h3>
+                    <ul class="list-none space-y-4 text-gray-300">
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>MATLAB & Simulink</span>
+                                <span class="text-sm font-semibold text-sky-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Python (Data Analysis/Scripting)</span>
+                                <span class="text-sm font-semibold text-sky-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Project Management Software</span>
+                                <span class="text-sm font-semibold text-sky-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Version Control (Git)</span>
+                                <span class="text-sm font-semibold text-sky-300">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar-fill h-full rounded-full" style="width: 75%;"></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <!-- Soft Skills -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Soft Skills</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <div class="glass-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4 flex items-center">
+                        <svg class="w-8 h-8 mr-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.747 0-3.332.477-4.5 1.253"></path></svg>
+                        Soft Skills
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
                         <li>Problem Solving</li>
                         <li>Critical Thinking</li>
                         <li>Team Collaboration</li>
@@ -161,45 +375,57 @@
         </div>
     </section>
 
-    <!-- Portfolio Section (Existing, but re-emphasized for job search) -->
-    <section id="portfolio" class="py-16 md:py-24 bg-white">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="section-title text-center mx-auto mb-12">Project Portfolio</h2>
-            <p class="text-center text-lg text-gray-700 mb-10">
+            <p class="text-center text-lg text-gray-300 mb-10">
                 Explore a selection of my key projects demonstrating my capabilities in mechanical design, analysis, and innovation.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+1" alt="Project 1" class="w-full h-48 object-cover">
+                <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+1" alt="Automotive Chassis Redesign" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Automotive Chassis Redesign</h3>
-                        <p class="text-gray-600 text-sm">
+                        <h3 class="text-xl font-semibold text-gray-100 mb-2">Automotive Chassis Redesign</h3>
+                        <p class="text-gray-300 text-sm">
                             Optimized chassis structure for reduced weight and improved rigidity using FEA. Achieved a 15% weight reduction while increasing torsional stiffness by 20%.
                         </p>
-                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                    <div class="portfolio-card-overlay">
+                        <h3 class="text-white">Chassis Optimization</h3>
+                        <p class="text-white">FEA-driven design for weight reduction and rigidity.</p>
+                        <a href="#" class="btn-secondary text-white bg-transparent border border-white hover:bg-white hover:text-sky-600 px-4 py-2 text-sm rounded-lg">View Details</a>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+2" alt="Project 2" class="w-full h-48 object-cover">
+                <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+2" alt="Aerospace Component Stress Analysis" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Aerospace Component Stress Analysis</h3>
-                        <p class="text-gray-600 text-sm">
+                        <h3 class="text-xl font-semibold text-gray-100 mb-2">Aerospace Component Stress Analysis</h3>
+                        <p class="text-gray-300 text-sm">
                             Conducted detailed stress analysis on critical aerospace components, ensuring compliance with safety standards and extending component lifespan.
                         </p>
-                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                    <div class="portfolio-card-overlay">
+                        <h3 class="text-white">Aerospace Analysis</h3>
+                        <p class="text-white">Ensuring safety and longevity through advanced stress analysis.</p>
+                        <a href="#" class="btn-secondary text-white bg-transparent border border-white hover:bg-white hover:text-sky-600 px-4 py-2 text-sm rounded-lg">View Details</a>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/600x400/cfe2f3/0ea5e9?text=Project+Image+3" alt="Project 3" class="w-full h-48 object-cover">
+                <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+3" alt="Renewable Energy System Design" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Renewable Energy System Design</h3>
-                        <p class="text-gray-600 text-sm">
+                        <h3 class="text-xl font-semibold text-gray-100 mb-2">Renewable Energy System Design</h3>
+                        <p class="text-gray-300 text-sm">
                             Designed and simulated a new wind turbine blade profile, leading to a 10% increase in energy capture efficiency.
                         </p>
-                        <a href="#" class="text-sky-600 hover:underline mt-4 inline-block text-sm">Learn More</a>
+                    </div>
+                    <div class="portfolio-card-overlay">
+                        <h3 class="text-white">Wind Turbine Optimization</h3>
+                        <p class="text-white">Innovative blade design for enhanced energy capture.</p>
+                        <a href="#" class="btn-secondary text-white bg-transparent border border-white hover:bg-white hover:text-sky-600 px-4 py-2 text-sm rounded-lg">View Details</a>
                     </div>
                 </div>
             </div>
@@ -207,56 +433,63 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-16 md:py-24 bg-gray-100 text-center">
+    <section id="resume" class="py-16 md:py-24 bg-gray-800 text-gray-200 text-center fade-in-section">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="section-title mx-auto mb-8">My Resume</h2>
-            <p class="text-lg text-gray-700 mb-8">
-                For a comprehensive overview of my professional experience, education, and detailed skill set, please download my resume.
-            </p>
-            <a href="path/to/your/resume.pdf" download class="btn-primary">
-                Download Resume (PDF)
-            </a>
-            <p class="text-sm text-gray-500 mt-4">
-                (Note: Replace "path/to/your/resume.pdf" with the actual link to your resume file.)
-            </p>
+            <div class="glass-card p-8 rounded-xl shadow-lg">
+                <p class="text-lg text-gray-300 mb-8">
+                    For a comprehensive overview of my professional experience, education, and detailed skill set, please download my resume.
+                </p>
+                <a href="path/to/your/resume.pdf" download class="btn-primary">
+                    Download Resume (PDF)
+                </a>
+                <p class="text-sm text-gray-400 mt-4">
+                    (Note: Replace "path/to/your/resume.pdf" with the actual link to your resume file.)
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-white">
+    <section id="contact" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="section-title text-center mx-auto mb-12">Get in Touch</h2>
-            <p class="text-center text-lg text-gray-700 mb-10">
-                I am actively seeking new mechanical engineering opportunities and welcome connections from recruiters and industry professionals. Please feel free to reach out to discuss how my skills can benefit your team.
-            </p>
-            <form class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="Your Name">
+            <div class="glass-card p-8 md:p-12">
+                <p class="text-center text-lg text-gray-300 mb-10">
+                    I am actively seeking new mechanical engineering opportunities and welcome connections from recruiters and industry professionals. Please feel free to reach out to discuss how my skills can benefit your team.
+                </p>
+                <form class="space-y-6" id="contact-form">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="your.email@example.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="I'm interested in discussing potential opportunities..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary" id="submit-button">
+                            Send Message
+                        </button>
+                        <p id="form-status" class="mt-4 text-sm text-sky-300 hidden"></p>
+                    </div>
+                </form>
+                <div class="text-center mt-8 text-gray-300">
+                    <p>Alternatively, you can reach me directly:</p>
+                    <p class="mt-2">Email: <a href="mailto:john.doe@example.com" class="text-sky-400 hover:underline">john.doe@example.com</a></p>
+                    <p>Phone: <a href="tel:+15551234567" class="text-sky-400 hover:underline">+1 (555) 123-4567</a></p>
+                    <p class="mt-4">Connect on LinkedIn: <a href="https://www.linkedin.com/in/johndoeengineer" target="_blank" class="text-sky-400 hover:underline">linkedin.com/in/johndoeengineer</a></p>
                 </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="your.email@example.com">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition duration-150 ease-in-out" placeholder="I'm interested in discussing potential opportunities..."></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </div>
-            </form>
-            <div class="text-center mt-8 text-gray-600">
-                <p>Alternatively, you can reach me directly:</p>
-                <p class="mt-2">Email: <a href="mailto:john.doe@example.com" class="text-sky-600 hover:underline">john.doe@example.com</a></p>
-                <p>Phone: <a href="tel:+15551234567" class="text-sky-600 hover:underline">+1 (555) 123-4567</a></p>
-                <p class="mt-4">Connect on LinkedIn: <a href="https://www.linkedin.com/in/johndoeengineer" target="_blank" class="text-sky-600 hover:underline">linkedin.com/in/johndoeengineer</a></p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center">
+    <footer class="bg-gray-900 text-gray-400 py-8 px-6 md:px-12 text-center border-t border-gray-700">
         <div class="container mx-auto">
             <p>&copy; 2025 John Doe. All rights reserved.</p>
             <div class="flex justify-center space-x-4 mt-4">
@@ -273,7 +506,13 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const offsetPosition = targetElement.offsetTop - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
 
@@ -289,6 +528,104 @@
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dynamic Navigation Bar appearance on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/30', 'shadow-xl', 'py-3');
+                navbar.classList.remove('bg-white/20', 'shadow-lg', 'py-4');
+            } else {
+                navbar.classList.remove('bg-white/30', 'shadow-xl', 'py-3');
+                navbar.classList.add('bg-white/20', 'shadow-lg', 'py-4');
+            }
+            highlightActiveNavLink();
+        });
+
+        // Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const highlightActiveNavLink = () => {
+            let currentActive = '';
+            const navbarHeight = document.getElementById('navbar').offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - 1; // Adjust for nav height
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentActive = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-sky-300');
+                link.classList.add('text-gray-200');
+                if (link.getAttribute('href').includes(currentActive)) {
+                    link.classList.add('text-sky-300');
+                    link.classList.remove('text-gray-200');
+                }
+            });
+        };
+
+        // Initial highlight on load
+        document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
+        window.addEventListener('resize', highlightActiveNavLink);
+
+
+        // Intersection Observer for Staggered Fade-in Animations
+        const fadeElements = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null, /* viewport */
+            rootMargin: '0px',
+            threshold: 0.1 /* 10% of element visible */
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Form Submission Micro-interaction
+        const contactForm = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            formStatus.classList.remove('hidden', 'text-red-400');
+            formStatus.classList.add('text-sky-300');
+            formStatus.textContent = 'Sending your message...';
+
+            // Simulate form submission (replace with actual fetch/AJAX in a real app)
+            setTimeout(() => {
+                const isSuccess = Math.random() > 0.2; // 80% chance of success
+
+                if (isSuccess) {
+                    formStatus.textContent = 'Message sent successfully! Thank you.';
+                    formStatus.classList.remove('text-sky-300');
+                    formStatus.classList.add('text-green-400');
+                    contactForm.reset(); // Clear form on success
+                } else {
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                    formStatus.classList.remove('text-sky-300');
+                    formStatus.classList.add('text-red-400');
+                }
+                submitButton.textContent = 'Send Message';
+                submitButton.disabled = false;
+            }, 2000); // Simulate network delay
         });
     </script>
 </body>
