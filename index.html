@@ -4,213 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mechanical engineer portfolio showcasing professional experience, skills, and projects.">
+    <meta name="keywords" content="mechanical engineer, engineering, CAD, FEA, thermodynamics, automotive, aerospace, renewable energy">
+    <meta name="author" content="Emmanuel Oduro Bempong">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emmanuel-patisco.github.io/">
+    <meta property="og:title" content="Emmanuel Oduro Bempong - Mechanical Engineer">
+    <meta property="og:description" content="Experienced Mechanical Engineer with 10+ years in design, analysis, and optimization. Seeking new opportunities in innovative engineering teams.">
+    <meta property="og:image" content="https://emmanuel-patisco.github.io/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://emmanuel-patisco.github.io/">
+    <meta property="twitter:title" content="Emmanuel Oduro Bempong - Mechanical Engineer">
+    <meta property="twitter:description" content="Experienced Mechanical Engineer with 10+ years in design, analysis, and optimization. Seeking new opportunities in innovative engineering teams.">
+    <meta property="twitter:image" content="https://emmanuel-patisco.github.io/assets/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0284c7">
+    
     <title>Emmanuel Oduro Bempong - Mechanical Engineer | Seeking Opportunities</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Poppins (for headings) and Inter (for body) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Custom CSS for enhanced aesthetics and animations */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568); /* Deep blues/grays gradient */
-            color: #e2e8f0; /* Light gray text for contrast */
-            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Section Title Styling with Gradient Text */
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            font-size: 2.75rem; /* text-5xl equivalent */
-            font-weight: 800; /* font-extrabold */
-            background: linear-gradient(to right, #8b5cf6, #3b82f6, #06b6d4); /* Purple to blue to teal gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            width: 70px;
-            height: 5px;
-            background: linear-gradient(to right, #8b5cf6, #06b6d4); /* Matching gradient underline */
-            border-radius: 9999px; /* rounded-full */
-        }
-
-        /* Glassmorphism Effect */
-        .glass-card {
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1rem; /* rounded-xl */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Primary Button with Shine Effect */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to right, #0284c7, #1d4ed8);
-            color: #ffffff;
-            padding: 0.75rem 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                        0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-            font-weight: 600;
-            font-size: 1.125rem;
-            line-height: 1.75rem;
-            z-index: 1;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: skewX(-20deg);
-            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-            z-index: -1;
-        }
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-
-        /* Secondary Button */
-        .btn-secondary {
-            background-color: #374151;
-            color: #e5e7eb;
-            padding: 0.75rem 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                        0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease-in-out,
-                        box-shadow 0.3s ease-in-out;
-            font-weight: 600;
-            font-size: 1.125rem;
-            line-height: 1.75rem;
-        }
-        .btn-secondary:hover {
-            background-color: #4b5563;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Custom height for hero section to account for fixed nav */
-        .min-h-screen-minus-nav {
-            min-height: calc(100vh - 76px); /* Adjust 76px based on nav height */
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes pulse-light {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-        .animate-pulse-light {
-            animation: pulse-light 2s infinite ease-in-out;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: white; }
-        }
-        .animate-typing {
-            overflow: hidden; /* Ensures the content is not revealed until the animation */
-            white-space: nowrap; /* Keeps the content on a single line */
-            border-right: .15em solid white; /* The typewriter cursor */
-            animation:
-                /* Adjust steps to the length of the heading text so the
-                   typewriter animation completes fully */
-                typing 3.5s steps(100, end),
-                blink-caret .75s step-end infinite;
-        }
-
-        /* Fade-in animation for sections */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Skill Progress Bar Animation */
-        @keyframes fillProgress {
-            from { width: 0%; }
-        }
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(to right, #06b6d4, #3b82f6); /* Teal to blue gradient */
-            border-radius: 9999px;
-            animation: fillProgress 1.5s ease-out forwards;
-        }
-
-        /* Portfolio Card Overlay */
-        .portfolio-card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(139, 92, 246, 0.8), rgba(6, 182, 212, 0.8)); /* Purple to Teal overlay */
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
-            text-align: center;
-            color: white;
-        }
-        .portfolio-card:hover .portfolio-card-overlay {
-            opacity: 1;
-        }
-        .portfolio-card-overlay h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem; /* text-2xl */
-            margin-bottom: 0.5rem;
-        }
-        .portfolio-card-overlay p {
-            font-size: 0.9rem; /* text-sm */
-            margin-bottom: 1rem;
-        }
-    </style>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
 
     <!-- Background Particles/Decorative Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -250,6 +83,7 @@
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="relative text-white py-32 md:py-48 flex items-center justify-center min-h-screen-minus-nav overflow-hidden">
         <div class="container mx-auto text-center px-6 z-10">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-typing mx-auto max-w-4xl">
@@ -275,7 +109,7 @@
             <h2 class="section-title text-center mx-auto mb-12">About Me</h2>
             <div class="glass-card p-8 md:p-12 flex flex-col md:flex-row items-center md:space-x-12">
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/400x400/334155/e2e8f0?text=Professional+Photo" alt="Emmanuel Oduro Bempong Professional Photo" class="rounded-full shadow-2xl ring-4 ring-sky-500 w-64 h-64 md:w-full md:h-auto object-cover mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <img data-src="https://placehold.co/400x400/334155/e2e8f0?text=Professional+Photo" alt="Emmanuel Oduro Bempong Professional Photo" class="rounded-full shadow-2xl ring-4 ring-sky-500 w-64 h-64 md:w-full md:h-auto object-cover mx-auto transform hover:scale-105 transition-transform duration-300 lazy-image">
                 </div>
                 <div class="md:w-2/3 text-lg leading-relaxed">
                     <p class="mb-4">
@@ -416,7 +250,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
                 <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+1" alt="Automotive Chassis Redesign" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img data-src="https://placehold.co/600x400/334155/e2e8f0?text=Project+1" alt="Automotive Chassis Redesign" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazy-image">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-100 mb-2">Automotive Chassis Redesign</h3>
                         <p class="text-gray-300 text-sm">
@@ -431,7 +265,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+2" alt="Aerospace Component Stress Analysis" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img data-src="https://placehold.co/600x400/334155/e2e8f0?text=Project+2" alt="Aerospace Component Stress Analysis" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazy-image">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-100 mb-2">Aerospace Component Stress Analysis</h3>
                         <p class="text-gray-300 text-sm">
@@ -446,7 +280,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="portfolio-card glass-card rounded-xl shadow-lg overflow-hidden group relative transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/334155/e2e8f0?text=Project+3" alt="Renewable Energy System Design" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img data-src="https://placehold.co/600x400/334155/e2e8f0?text=Project+3" alt="Renewable Energy System Design" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazy-image">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-100 mb-2">Renewable Energy System Design</h3>
                         <p class="text-gray-300 text-sm">
@@ -531,113 +365,9 @@
             </div>
         </div>
     </footer>
+    </main>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                const navbarHeight = document.getElementById('navbar').offsetHeight;
-                const offsetPosition = targetElement.offsetTop - navbarHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu after clicking a link
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Toggle mobile menu visibility
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Dynamic Navigation Bar appearance on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white/30', 'shadow-xl', 'py-3');
-                navbar.classList.remove('bg-white/20', 'shadow-lg', 'py-4');
-            } else {
-                navbar.classList.remove('bg-white/30', 'shadow-xl', 'py-3');
-                navbar.classList.add('bg-white/20', 'shadow-lg', 'py-4');
-            }
-            highlightActiveNavLink();
-        });
-
-        // Active Navigation Link Highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        const highlightActiveNavLink = () => {
-            let currentActive = '';
-            const navbarHeight = document.getElementById('navbar').offsetHeight;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbarHeight - 1; // Adjust for nav height
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    currentActive = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-sky-300');
-                link.classList.add('text-gray-200');
-                if (link.getAttribute('href').includes(currentActive)) {
-                    link.classList.add('text-sky-300');
-                    link.classList.remove('text-gray-200');
-                }
-            });
-        };
-
-        // Initial highlight on load
-        document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
-        window.addEventListener('resize', highlightActiveNavLink);
-
-
-        // Intersection Observer for Staggered Fade-in Animations
-        const fadeElements = document.querySelectorAll('.fade-in-section');
-
-        const observerOptions = {
-            root: null, /* viewport */
-            rootMargin: '0px',
-            threshold: 0.1 /* 10% of element visible */
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
-            });
-        }, observerOptions);
-
-        fadeElements.forEach(element => {
-            observer.observe(element);
-        });
-
-        // Form Submission Demo
-        const contactForm = document.getElementById("contact-form");
-        const formStatus = document.getElementById("form-status");
-
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            formStatus.classList.remove("hidden", "text-red-400", "text-green-400");
-            formStatus.classList.add("text-yellow-400");
-            formStatus.textContent = "This is a demo form. Messages are not sent.";
-        });
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
