@@ -207,6 +207,11 @@ h1, h2, h3, h4, h5, h6 {
     to { width: 100% }
 }
 
+@keyframes typing-mobile {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: white; }
@@ -216,7 +221,48 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     white-space: nowrap;
     border-right: .15em solid white;
-    animation: typing 3.5s steps(100, end), blink-caret .75s step-end infinite;
+    animation: typing 4s steps(60, end), blink-caret .75s step-end infinite;
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .animate-typing {
+        white-space: normal;
+        animation: typing-mobile 2s ease-in-out;
+        border-right: none;
+        line-height: 1.2;
+    }
+}
+
+/* Animation delay utilities */
+.animation-delay-500 {
+    animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Fade-in with delays */
+.fade-in-section.animation-delay-500 {
+    transition-delay: 0.5s;
+}
+
+.fade-in-section.animation-delay-1000 {
+    transition-delay: 1s;
+}
+
+.fade-in-section.animation-delay-2000 {
+    transition-delay: 2s;
 }
 
 /* Fade-in animation for sections */
