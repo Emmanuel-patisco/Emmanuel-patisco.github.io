@@ -212,33 +212,22 @@ h1, h2, h3, h4, h5, h6 {
     50% { border-color: white; }
 }
 
-@keyframes typing-with-cursor {
-    0% { width: 0; border-right: .15em solid white; }
-    75% { width: 100%; border-right: .15em solid white; }
-    90% { width: 100%; border-right: .15em solid transparent; }
-    95% { width: 100%; border-right: .15em solid white; }
-    100% { width: 100%; border-right: none; }
-}
-
-@keyframes typing-mobile {
-    0% { width: 0; border-right: .15em solid white; }
-    71% { width: 100%; border-right: .15em solid white; }
-    86% { width: 100%; border-right: .15em solid transparent; }
-    93% { width: 100%; border-right: .15em solid white; }
-    100% { width: 100%; border-right: none; }
+@keyframes typing-no-cursor {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 .typewriter-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing-with-cursor 4s steps(20, end) forwards;
+    animation: typing-no-cursor 3s steps(20, end) forwards;
     width: 0;
 }
 
 @media (max-width: 768px) {
     .typewriter-text {
-        animation: typing-mobile 3.5s steps(20, end) forwards;
+        animation: typing-no-cursor 2.5s steps(20, end) forwards;
     }
 }
 
