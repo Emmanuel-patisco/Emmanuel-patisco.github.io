@@ -1031,6 +1031,147 @@ input, textarea {
     color: var(--text-secondary) !important;
 }
 
+/* Comprehensive light theme text overrides */
+[data-theme="light"] .text-gray-200 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-gray-300 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .text-sky-300 {
+    color: var(--text-accent) !important;
+}
+
+[data-theme="light"] .text-sky-400 {
+    color: var(--text-accent) !important;
+}
+
+[data-theme="light"] .text-purple-400 {
+    color: #8b5cf6 !important;
+}
+
+[data-theme="light"] .text-teal-400 {
+    color: #14b8a6 !important;
+}
+
+[data-theme="light"] .text-cyan-400 {
+    color: #06b6d4 !important;
+}
+
+[data-theme="light"] .text-gray-100 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+/* Force all sections to have proper text colors in light theme */
+[data-theme="light"] section {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] section * {
+    color: inherit;
+}
+
+[data-theme="light"] section h1,
+[data-theme="light"] section h2,
+[data-theme="light"] section h3,
+[data-theme="light"] section h4,
+[data-theme="light"] section h5,
+[data-theme="light"] section h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] section p {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] section span {
+    color: inherit !important;
+}
+
+[data-theme="light"] section li {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] section a {
+    color: var(--text-accent) !important;
+}
+
+[data-theme="light"] section a:hover {
+    color: var(--text-accent) !important;
+    filter: brightness(1.2);
+}
+
+/* Special elements in light theme */
+[data-theme="light"] .skill-icon {
+    color: var(--text-accent) !important;
+}
+
+[data-theme="light"] svg {
+    color: inherit !important;
+}
+
+/* Form placeholders in light theme */
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 0.7;
+}
+
+/* Portfolio and contact section specifics */
+[data-theme="light"] .portfolio-card h3,
+[data-theme="light"] .portfolio-card p {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .portfolio-card-overlay h3,
+[data-theme="light"] .portfolio-card-overlay p,
+[data-theme="light"] .portfolio-card-overlay a {
+    color: white !important;
+}
+
+/* Contact form labels */
+[data-theme="light"] label {
+    color: var(--text-primary) !important;
+}
+
+/* Ultra-aggressive light theme text overrides - catch all remaining cases */
+[data-theme="light"] * {
+    border-color: var(--border-color);
+}
+
+[data-theme="light"] [class*="text-gray-"],
+[data-theme="light"] [class*="text-sky-"],
+[data-theme="light"] [class*="text-purple-"],
+[data-theme="light"] [class*="text-teal-"],
+[data-theme="light"] [class*="text-cyan-"],
+[data-theme="light"] [class*="text-white"] {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] [class*="text-sky-3"],
+[data-theme="light"] [class*="text-sky-4"],
+[data-theme="light"] [class*="text-purple-4"],
+[data-theme="light"] [class*="text-teal-4"],
+[data-theme="light"] [class*="text-cyan-4"] {
+    color: var(--text-accent) !important;
+}
+
+/* Progress bar backgrounds in light theme */
+[data-theme="light"] .bg-gray-700 {
+    background-color: #e2e8f0 !important;
+}
+
+/* Ensure skill percentage text is visible */
+[data-theme="light"] .skill-percentage {
+    color: var(--text-accent) !important;
+}
+
 /* Print styles */
 @media print {
     .no-print {
