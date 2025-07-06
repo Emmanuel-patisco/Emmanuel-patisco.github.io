@@ -25,6 +25,7 @@ class PortfolioManager {
         this.setupScrollProgress();
         this.setupSkillAnimations();
         this.setupPortfolioAnimations();
+        this.setupThemeToggle();
         this.highlightActiveNavLink();
         
         // Initial setup
@@ -404,6 +405,60 @@ class PortfolioManager {
         portfolioCards.forEach(card => {
             observer.observe(card);
         });
+    }
+
+    setupThemeToggle() {
+        // Initialize theme from localStorage or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        this.setTheme(savedTheme);
+
+        // Setup desktop theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+
+        // Setup mobile theme toggle
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', () => this.toggleTheme());
+        }
+
+        // Listen for system theme changes
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+        mediaQuery.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                this.setTheme(e.matches ? 'light' : 'dark');
+            }
+        });
+    }
+
+    toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        this.setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Add a small vibration for mobile devices
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
+    }
+
+    setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Update toggle states
+        const toggles = document.querySelectorAll('.theme-toggle');
+        toggles.forEach(toggle => {
+            toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        });
+
+        // Animate theme transition
+        document.body.style.transition = 'none';
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 100);
     }
 }
 

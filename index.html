@@ -56,19 +56,50 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav id="navbar" class="bg-white/20 backdrop-blur-lg shadow-lg py-4 px-6 md:px-12 fixed w-full z-20 top-0 transition-all duration-300 ease-in-out">
+    <nav id="navbar" class="navbar-theme backdrop-blur-lg shadow-lg py-4 px-6 md:px-12 fixed w-full z-20 top-0 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="navbar-logo text-2xl font-bold text-white hover:text-sky-300 transition duration-300">Emmanuel Oduro Bempong</a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Home</a>
                 <a href="#about" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">About</a>
                 <a href="#skills" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Skills</a>
                 <a href="#portfolio" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Portfolio</a>
                 <a href="#resume" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Resume</a>
                 <a href="#contact" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Contact</a>
+                
+                <!-- Theme Toggle -->
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <div class="theme-toggle-track">
+                            <div class="theme-toggle-thumb">
+                                <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                                </svg>
+                                <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                </div>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none transition-transform duration-200 hover:scale-110">
+            <!-- Mobile Menu Button and Theme Toggle -->
+            <div class="md:hidden flex items-center space-x-3">
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle-mobile" class="theme-toggle theme-toggle-mobile" aria-label="Toggle theme">
+                        <div class="theme-toggle-track">
+                            <div class="theme-toggle-thumb">
+                                <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                                </svg>
+                                <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <button id="mobile-menu-button" class="text-gray-200 focus:outline-none transition-transform duration-200 hover:scale-110">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
@@ -124,7 +155,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
+    <section id="about" class="section-theme py-16 md:py-24 fade-in-section">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="section-title text-center mx-auto mb-12">About Me</h2>
             <div class="glass-card p-8 md:p-12 flex flex-col md:flex-row items-center md:space-x-12">
@@ -147,7 +178,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-24 bg-gray-800 text-gray-200 fade-in-section">
+    <section id="skills" class="section-theme-alt py-16 md:py-24 fade-in-section">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="section-title text-center mx-auto mb-12">My Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -261,7 +292,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
+    <section id="portfolio" class="section-theme py-16 md:py-24 fade-in-section">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="section-title text-center mx-auto mb-12">Project Portfolio</h2>
             <p class="text-center text-lg text-gray-300 mb-10">
@@ -318,7 +349,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-16 md:py-24 bg-gray-800 text-gray-200 text-center fade-in-section">
+    <section id="resume" class="section-theme-alt py-16 md:py-24 text-center fade-in-section">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="section-title mx-auto mb-8">My Resume</h2>
             <div class="glass-card p-8 rounded-xl shadow-lg">
@@ -336,7 +367,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-gray-900 text-gray-200 fade-in-section">
+    <section id="contact" class="section-theme py-16 md:py-24 fade-in-section">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="section-title text-center mx-auto mb-12">Get in Touch</h2>
             <div class="glass-card p-8 md:p-12">
@@ -375,7 +406,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8 px-6 md:px-12 text-center border-t border-gray-700">
+    <footer class="footer-theme py-8 px-6 md:px-12 text-center border-t border-opacity-20">
         <div class="container mx-auto">
             <p>&copy; 2025 Emmanuel Oduro Bempong. All rights reserved.</p>
             <div class="flex justify-center space-x-4 mt-4">
