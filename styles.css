@@ -212,19 +212,25 @@ h1, h2, h3, h4, h5, h6 {
     50% { border-color: white; }
 }
 
+@keyframes blink-caret-then-hide {
+    0%, 75% { border-color: white; }
+    87.5% { border-color: transparent; }
+    100% { border-color: transparent; }
+}
+
 .typewriter-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     border-right: .15em solid white;
-    animation: typing 3s steps(20, end), blink-caret .75s step-end infinite;
+    animation: typing 3s steps(20, end), blink-caret-then-hide 4s step-end forwards;
     width: 0;
     animation-fill-mode: forwards;
 }
 
 @media (max-width: 768px) {
     .typewriter-text {
-        animation: typing 2.5s steps(20, end), blink-caret .75s step-end infinite;
+        animation: typing 2.5s steps(20, end), blink-caret-then-hide 3.5s step-end forwards;
         animation-fill-mode: forwards;
     }
 }
