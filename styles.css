@@ -719,11 +719,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Micro-interactions */
 .social-link {
     transition: var(--transition-normal);
+    color: var(--text-secondary);
 }
 
 .social-link:hover {
     transform: translateY(-2px);
     text-shadow: 0 4px 8px rgba(6, 182, 212, 0.4);
+    color: var(--text-accent);
 }
 
 /* Typography Animations */
@@ -912,6 +914,121 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-section-primary);
     color: var(--text-secondary);
     transition: var(--transition-theme);
+}
+
+/* Theme-aware text overrides */
+.section-theme .section-title,
+.section-theme-alt .section-title {
+    color: var(--text-primary);
+}
+
+.section-theme p,
+.section-theme-alt p,
+.section-theme h1,
+.section-theme-alt h1,
+.section-theme h2,
+.section-theme-alt h2,
+.section-theme h3,
+.section-theme-alt h3,
+.section-theme h4,
+.section-theme-alt h4,
+.section-theme h5,
+.section-theme-alt h5,
+.section-theme h6,
+.section-theme-alt h6 {
+    color: var(--text-primary);
+}
+
+.section-theme .text-gray-300,
+.section-theme-alt .text-gray-300 {
+    color: var(--text-secondary) !important;
+}
+
+.section-theme .text-sky-400,
+.section-theme-alt .text-sky-400 {
+    color: var(--text-accent) !important;
+}
+
+.section-theme .text-gray-200,
+.section-theme-alt .text-gray-200 {
+    color: var(--text-primary) !important;
+}
+
+.section-theme .text-gray-100,
+.section-theme-alt .text-gray-100 {
+    color: var(--text-primary) !important;
+}
+
+/* Hero Section Theme */
+.hero-section {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    transition: var(--transition-theme);
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section p {
+    color: var(--text-primary);
+}
+
+/* Light theme hero adjustments */
+[data-theme="light"] .hero-section {
+    background: var(--bg-gradient);
+}
+
+[data-theme="light"] .hero-section h1,
+[data-theme="light"] .hero-section h2,
+[data-theme="light"] .hero-section p {
+    color: var(--text-primary);
+}
+
+/* Update particles for light theme */
+[data-theme="light"] .particle {
+    background: rgba(6, 182, 212, 0.2);
+}
+
+[data-theme="light"] .particle:nth-child(2n) {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="light"] .particle:nth-child(3n) {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+/* Form inputs theme */
+input, textarea {
+    background: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+    transition: var(--transition-theme);
+}
+
+/* Light theme form adjustments */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+    background: white !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Footer links theme */
+.footer-theme a {
+    color: var(--text-secondary);
+    transition: var(--transition-theme);
+}
+
+.footer-theme a:hover {
+    color: var(--text-accent);
+}
+
+/* Global text color fixes for light theme */
+[data-theme="light"] .text-white {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-gray-400 {
+    color: var(--text-secondary) !important;
 }
 
 /* Print styles */
