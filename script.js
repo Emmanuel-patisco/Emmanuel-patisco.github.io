@@ -22,6 +22,9 @@ class PortfolioManager {
         this.setupFormHandler();
         this.setupLazyLoading();
         this.setupKeyboardNavigation();
+        this.setupScrollProgress();
+        this.setupSkillAnimations();
+        this.setupPortfolioAnimations();
         this.highlightActiveNavLink();
         
         // Initial setup
@@ -314,6 +317,92 @@ class PortfolioManager {
             if (e.key === 'Escape' && !this.mobileMenu.classList.contains('hidden')) {
                 this.mobileMenu.classList.add('hidden');
             }
+        });
+    }
+
+    setupScrollProgress() {
+        const progressBar = document.getElementById('scroll-progress');
+        if (!progressBar) return;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    }
+
+    setupSkillAnimations() {
+        const skillsSection = document.getElementById('skills');
+        if (!skillsSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(skillsSection);
+    }
+
+    animateSkills() {
+        // Animate progress bars
+        const progressBars = document.querySelectorAll('.progress-bar-animated');
+        progressBars.forEach((bar, index) => {
+            setTimeout(() => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            }, index * 200);
+        });
+
+        // Animate percentage numbers with count-up effect
+        const percentages = document.querySelectorAll('.skill-percentage');
+        percentages.forEach((percentage, index) => {
+            setTimeout(() => {
+                const targetValue = parseInt(percentage.getAttribute('data-percentage'));
+                this.animateCountUp(percentage, 0, targetValue, 1500);
+            }, index * 200);
+        });
+    }
+
+    animateCountUp(element, start, end, duration) {
+        const range = end - start;
+        const startTime = performance.now();
+
+        const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(start + (range * progress));
+            
+            element.textContent = current + '%';
+            
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        };
+
+        requestAnimationFrame(step);
+    }
+
+    setupPortfolioAnimations() {
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('portfolio-stagger');
+                    }, index * 200);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        portfolioCards.forEach(card => {
+            observer.observe(card);
         });
     }
 }

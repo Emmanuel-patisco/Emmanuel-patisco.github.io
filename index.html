@@ -44,6 +44,9 @@
 <body class="antialiased">
     <!-- Skip Navigation for Accessibility -->
     <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- Background Particles/Decorative Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -55,7 +58,7 @@
     <!-- Navigation Bar -->
     <nav id="navbar" class="bg-white/20 backdrop-blur-lg shadow-lg py-4 px-6 md:px-12 fixed w-full z-20 top-0 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white hover:text-sky-300 transition duration-300">Emmanuel Oduro Bempong</a>
+            <a href="#" class="navbar-logo text-2xl font-bold text-white hover:text-sky-300 transition duration-300">Emmanuel Oduro Bempong</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Home</a>
                 <a href="#about" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">About</a>
@@ -65,45 +68,59 @@
                 <a href="#contact" class="nav-link text-gray-200 hover:text-sky-300 transition duration-300 font-medium">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none transition-transform duration-200 hover:scale-110">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white/90 backdrop-blur-md py-2 mt-4 rounded-lg shadow-xl">
-            <a href="#home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
-            <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About</a>
-            <a href="#skills" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Skills</a>
-            <a href="#portfolio" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Portfolio</a>
-            <a href="#resume" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Resume</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+        <div id="mobile-menu" class="mobile-menu md:hidden hidden bg-white/90 backdrop-blur-md py-2 mt-4 rounded-lg shadow-xl">
+            <a href="#home" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200">Home</a>
+            <a href="#about" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200" style="animation-delay: 0.1s">About</a>
+            <a href="#skills" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200" style="animation-delay: 0.2s">Skills</a>
+            <a href="#portfolio" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200" style="animation-delay: 0.3s">Portfolio</a>
+            <a href="#resume" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200" style="animation-delay: 0.4s">Resume</a>
+            <a href="#contact" class="mobile-menu-item block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200" style="animation-delay: 0.5s">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <main id="main-content">
     <section id="home" class="relative text-white py-32 md:py-48 flex items-center justify-center min-h-screen-minus-nav overflow-hidden">
+        <!-- Enhanced Particle System -->
+        <div class="hero-particles">
+            <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; width: 5px; height: 5px; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 50%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; width: 6px; height: 6px; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; width: 3px; height: 3px; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 80%; width: 5px; height: 5px; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 90%; width: 4px; height: 4px; animation-delay: 3.5s;"></div>
+        </div>
+        
         <div class="container mx-auto text-center px-6 z-10">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-2 mx-auto max-w-4xl">
                 <span class="typewriter-text">Mechanical Engineer</span>
             </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold mb-6 mx-auto max-w-4xl fade-in-section animation-delay-1000">
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6 mx-auto max-w-4xl text-reveal" style="animation-delay: 3.5s;">
                 Seeking New Opportunities
             </h2>
-            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 fade-in-section animation-delay-1500">
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 text-reveal" style="animation-delay: 4s;">
                 Leveraging expertise in design, analysis, and optimization to contribute to innovative engineering teams.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in-section animation-delay-2000">
-                <a href="#resume" class="btn-primary">Download Resume</a>
-                <a href="#contact" class="btn-secondary">Connect with Me</a>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 text-reveal" style="animation-delay: 4.5s;">
+                <a href="#resume" class="btn-primary btn-pulse">Download Resume</a>
+                <a href="#contact" class="btn-secondary hover:scale-105 transition-transform duration-200">Connect with Me</a>
             </div>
         </div>
-        <!-- Decorative elements for hero section -->
+        <!-- Enhanced Decorative elements -->
         <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
         <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-teal-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-light"></div>
         <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-light animation-delay-1000"></div>
+        <div class="absolute top-1/2 right-1/3 w-32 h-32 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse-light animation-delay-2000"></div>
     </section>
 
     <!-- About Section -->
@@ -135,46 +152,46 @@
             <h2 class="section-title text-center mx-auto mb-12">My Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Technical Skills -->
-                <div class="glass-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="skill-card glass-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-2xl font-semibold text-sky-400 mb-4 flex items-center">
-                        <svg class="w-8 h-8 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <svg class="skill-icon w-8 h-8 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         Technical Skills
                     </h3>
                     <ul class="list-none space-y-4 text-gray-300">
                         <li>
                             <div class="flex justify-between items-center mb-1">
                                 <span>CAD Software (SolidWorks, CATIA)</span>
-                                <span class="text-sm font-semibold text-sky-300">95%</span>
+                                <span class="skill-percentage text-sm font-semibold text-sky-300" data-percentage="95">95%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar-fill h-full rounded-full" style="width: 95%;"></div>
+                                <div class="progress-bar-animated progress-bar-fill h-full rounded-full" data-width="95"></div>
                             </div>
                         </li>
                         <li>
                             <div class="flex justify-between items-center mb-1">
                                 <span>FEA Software (ANSYS, Abaqus)</span>
-                                <span class="text-sm font-semibold text-sky-300">90%</span>
+                                <span class="skill-percentage text-sm font-semibold text-sky-300" data-percentage="90">90%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar-fill h-full rounded-full" style="width: 90%;"></div>
+                                <div class="progress-bar-animated progress-bar-fill h-full rounded-full" data-width="90"></div>
                             </div>
                         </li>
                         <li>
                             <div class="flex justify-between items-center mb-1">
                                 <span>Thermodynamics & Heat Transfer</span>
-                                <span class="text-sm font-semibold text-sky-300">85%</span>
+                                <span class="skill-percentage text-sm font-semibold text-sky-300" data-percentage="85">85%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar-fill h-full rounded-full" style="width: 85%;"></div>
+                                <div class="progress-bar-animated progress-bar-fill h-full rounded-full" data-width="85"></div>
                             </div>
                         </li>
                         <li>
                             <div class="flex justify-between items-center mb-1">
                                 <span>Fluid Dynamics & CFD</span>
-                                <span class="text-sm font-semibold text-sky-300">80%</span>
+                                <span class="skill-percentage text-sm font-semibold text-sky-300" data-percentage="80">80%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar-fill h-full rounded-full" style="width: 80%;"></div>
+                                <div class="progress-bar-animated progress-bar-fill h-full rounded-full" data-width="80"></div>
                             </div>
                         </li>
                     </ul>
