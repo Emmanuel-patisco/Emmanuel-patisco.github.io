@@ -221,13 +221,14 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing-no-cursor 3s steps(20, end) forwards;
+    animation: typing-no-cursor 3s steps(19, end) forwards;
     width: 0;
 }
 
 @media (max-width: 768px) {
     .typewriter-text {
-        animation: typing-no-cursor 2.5s steps(20, end) forwards;
+        animation: typing-no-cursor 3s steps(19, end) forwards;
+        font-size: 2rem;
     }
 }
 
